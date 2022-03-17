@@ -1,5 +1,6 @@
 package com.hoaxify.ws.dto;
 
+import com.hoaxify.ws.annotation.UniqueUsername;
 import lombok.Data;
 
 import javax.validation.constraints.*;
@@ -10,6 +11,7 @@ public class UserRequestDto {
     //@NotBlank can be used for both
     @NotNull(message = "must not be null")
     @NotEmpty(message = "must not be null")
+    @UniqueUsername
     @Size(min = 4,max = 255)
     private String username;
 
