@@ -1,6 +1,8 @@
 package com.hoaxify.ws.entity;
 
+import com.sun.istack.NotNull;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
