@@ -7,6 +7,7 @@ import javax.validation.constraints.*;
 @Data
 public class UserRequestDto {
 
+    //@NotBlank can be used for both
     @NotNull(message = "must not be null")
     @NotEmpty(message = "must not be null")
     @Size(min = 4,max = 255)
@@ -19,6 +20,8 @@ public class UserRequestDto {
 
     @NotNull(message = "must not be null")
     @NotEmpty(message ="must not be null" )
+    @Size(min = 8,max = 255)
+    @Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$",message = "büyük harf, küçük harf ve sayı içermelidir.")
     private String password;
 
 }
