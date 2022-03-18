@@ -8,22 +8,18 @@ import javax.validation.constraints.*;
 @Data
 public class UserRequestDto {
 
-    //@NotBlank can be used for both
-    @NotNull(message = "must not be null")
-    @NotEmpty(message = "must not be null")
+    @NotBlank(message = "{hoaxify.constraints.username.NotNull.message}")
     @UniqueUsername
     @Size(min = 4,max = 255)
     private String username;
 
-    @NotNull(message = "must not be null")
-    @NotEmpty(message ="must not be null" )
+    @NotBlank
     @Size(min = 4,max = 255)
     private String displayName;
 
-    @NotNull(message = "must not be null")
-    @NotEmpty(message ="must not be null" )
+    @NotBlank
     @Size(min = 8,max = 255)
-    @Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$",message = "büyük harf, küçük harf ve sayı içermelidir.")
+    @Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$", message = "{hoaxify.constraints.password.NotNull.message}")
     private String password;
 
 }
