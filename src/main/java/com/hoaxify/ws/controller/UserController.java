@@ -37,7 +37,7 @@ public class UserController {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiError> handleValidationException(MethodArgumentNotValidException exception, WebRequest webRequest){
-        ApiError error = new ApiError(HttpStatus.BAD_REQUEST.value(),exception.getMessage(),webRequest.getDescription(false),HttpStatus.BAD_REQUEST);
+        ApiError error = new ApiError(HttpStatus.BAD_REQUEST.value(),"validation error",webRequest.getDescription(false),HttpStatus.BAD_REQUEST);
         Map<String,String> validationErrors = new HashMap<>();
         for(FieldError fieldError : exception.getBindingResult().getFieldErrors()){
             validationErrors.put(fieldError.getField(),fieldError.getDefaultMessage());
